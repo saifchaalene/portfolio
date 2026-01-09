@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 // Only 2 photos (your real ones)
 const galleryImages = [
-  '/assets/images/chess/chess-1.jpg',
-  '/assets/images/chess/chess-2.jpg',
+  `${import.meta.env.BASE_URL}assets/images/chess/chess-1.jpg`,
+  `${import.meta.env.BASE_URL}assets/images/chess/chess-2.jpg`,
 ]
 
 // CV-aligned: one activity (President)

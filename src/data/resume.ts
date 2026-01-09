@@ -5,7 +5,7 @@ export const resume = {
     phone: '+216 56 170 640',
     email: 'saifchaalene5@gmail.com',
     location: 'Bizerte, Tunisia',
-    linkedin: 'https://www.linkedin.com/in/chaalene-saif-116a85205/',
+    linkedin: 'https://www.linkedin.com/in/chaalane-saif-116a85205/',
     github: 'https://github.com/saifchaalene',
   },
   profile:

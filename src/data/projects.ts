@@ -27,7 +27,7 @@ export const projects: Project[] = [
       'assets/images/projects/BIECRM-2.png',
     ],
     tech: ['Joomla 5', 'CiviCRM', 'PHP 8.2', 'REST APIs', 'React', 'Vite', 'Tailwind CSS'],
-    demo: 'https://lnkd.in/https://www.linkedin.com/in/chaalane-saif-116a85205/',
+    demo: 'https://www.linkedin.com/in/chaalane-saif-116a85205/',
     github: 'https://github.com/saifchaalene/bie-crm-react',
     year: '2025',
     duration: 'Mar - Sept 2025',
