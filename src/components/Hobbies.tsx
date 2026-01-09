@@ -36,7 +36,7 @@ const hobbies = [
     icon: '♟️',
     description: 'Strategic thinking and competitive problem-solving',
     color: 'from-indigo-500/20 to-violet-500/20',
-    link: 'https://www.chess.com/member/majidkouki'
+    link: 'https://www.chess.com/member/saifchaalene7'
   },
   {
     id: 6,
@@ -49,8 +49,8 @@ const hobbies = [
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.8 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
     transition: { duration: 0.5 }
   }
@@ -60,7 +60,7 @@ export default function Hobbies() {
   return (
     <section id="hobbies" className="py-20 bg-slate-900/30 dark:bg-slate-900/30">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -83,16 +83,16 @@ export default function Hobbies() {
             const CardContent = (
               <>
                 <div className={`absolute inset-0 bg-gradient-to-br ${hobby.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                
+
                 <div className="relative glass-card text-center h-full flex flex-col items-center justify-center p-8 group-hover:border-cyan-500/50 transition-all duration-300">
                   <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                     {hobby.icon}
                   </div>
-                  
+
                   <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                     {hobby.name}
                   </h3>
-                  
+
                   <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                     {hobby.description}
                   </p>
