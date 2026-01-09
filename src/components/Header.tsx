@@ -33,7 +33,7 @@ export default function Header() {
             transition={{ type: 'spring', stiffness: 400 }}
           >
             <img
-              src="/assets/images/logo.png"
+              src={`${import.meta.env.BASE_URL}assets/images/logo.png`}
               alt="logo"
               className="h-10 w-10 rounded-lg"
             />

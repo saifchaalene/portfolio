@@ -43,7 +43,7 @@ export default function Hero() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
               <img
-                src="/assets/images/me.jpg"
+                src={`${import.meta.env.BASE_URL}assets/images/me.jpg`}
                 alt={resume.name}
                 className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover border-4 border-cyan-200/50 dark:border-slate-700/50 shadow-2xl"
               />
