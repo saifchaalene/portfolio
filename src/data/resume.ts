@@ -1,6 +1,6 @@
 export const resume = {
   name: 'Saif Chaalane',
-  role: 'Software Engineer',
+  role: 'IT Officer - Full-Stack Developer (React/PHP) & Systems Support',
   contact: {
     phone: '+216 56 170 640',
     email: 'saifchaalene5@gmail.com',
@@ -9,12 +9,15 @@ export const resume = {
     github: 'https://github.com/saifchaalene',
   },
   profile:
-    'Software Engineer with hands-on experience modernizing enterprise platforms and building scalable web applications. Strong full-stack background across React, Angular, Node.js, and PHP, with solid exposure to DevOps practices (CI/CD, Docker) and clean architecture. Comfortable in Agile/Scrum teams and focused on maintainable, production-ready delivery.',
+    'Software Engineer with hands-on experience modernizing Joomla/CiviCRM platforms and building scalable React and TypeScript applications. Delivered PHP and MySQL-backed REST APIs, integrated authentication and data flows (CORS, tokens), and built responsive UIs with Vite and Tailwind CSS. Comfortable with Linux deployments (Apache/Nginx, php-fpm), CI/CD pipelines, and day-to-day systems support in Agile teams.',
   skills: {
     frameworks: [
       'React',
       'Angular',
-      'Django',
+      'Next.js',
+      'Vite',
+      'Tailwind CSS',
+      'React Router',
       'Node.js (Express/Nest)',
       'Symfony',
       'ASP.NET Core',
@@ -24,11 +27,13 @@ export const resume = {
     ],
     devops: [
       'Git/GitHub/GitLab',
+      'Linux (CLI)',
       'Docker',
       'Jenkins',
       'SonarQube',
       'Grafana',
-      'Nginx',
+      'Apache/Nginx',
+      'php-fpm',
       'CI/CD Pipelines',
     ],
     soft: ['Teamwork', 'Problem Solving', 'Clean Code', 'Agile/Scrum Collaboration'],
@@ -55,6 +60,15 @@ export const resume = {
       details: [
         'Advanced mathematics, physics, algorithms, and problem-solving',
         'Preparation for national engineering entrance examinations',
+      ],
+    },
+    {
+      id: 'e3',
+      title: 'Baccalaureate in Mathematics',
+      org: 'Lycee — Bizerte, Tunisia',
+      period: '2018',
+      details: [
+        'National diploma with a focus on advanced mathematics and scientific reasoning',
       ],
     },
 
