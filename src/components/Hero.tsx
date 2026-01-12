@@ -98,7 +98,7 @@ export default function Hero() {
             >
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="/assets/cv/Saif_Chaalane_CV.pdf"
+                  href={`${import.meta.env.BASE_URL}assets/cv/Saif_Chaalane_CV.pdf`}
                   download="Saif_Chaalane_CV.pdf"
                   className="btn btn-primary"
                 >
@@ -106,7 +106,7 @@ export default function Hero() {
                 </a>
 
                 <a
-                  href="/assets/cv/Saif_Chaalane_CV.pdf"
+                  href={`${import.meta.env.BASE_URL}assets/cv/Saif_Chaalane_CV.pdf`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary"
