@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 // Only 2 photos (your real ones)
 const galleryImages = [
@@ -55,6 +56,7 @@ const highlights = [
 ]
 
 export default function CommunityDetails() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
@@ -69,7 +71,7 @@ export default function CommunityDetails() {
           className="mb-8 flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
         >
           <span className="text-xl">←</span>
-          <span className="font-medium">Back to Home</span>
+          <span className="font-medium">{t('communityDetails.backToHome', 'Back to Home')}</span>
         </motion.button>
 
         {/* Header */}
@@ -79,11 +81,13 @@ export default function CommunityDetails() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-            ♟️ Activities
+            ♟️ {t('communityDetails.title', 'Activities')}
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            President at ChessSpirit Club (ESPRIT). I organized tournaments and training sessions to help members
-            improve their skills and stay engaged through consistent practice and competition.
+            {t(
+              'communityDetails.subtitle',
+              'President at ChessSpirit Club (ESPRIT). I organized tournaments and training sessions to help members improve their skills and stay engaged through consistent practice and competition.'
+            )}
           </p>
         </motion.div>
 
@@ -103,7 +107,7 @@ export default function CommunityDetails() {
                 <div className="relative h-80 md:h-96 overflow-hidden rounded-xl">
                   <img
                     src={galleryImages[0]}
-                    alt="ChessSpirit Club activity"
+                    alt={t('communityDetails.featuredImageAlt', 'ChessSpirit Club activity')}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
@@ -117,28 +121,36 @@ export default function CommunityDetails() {
                     </div>
                     <div>
                       <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100">
-                        President — ChessSpirit Club
+                        {t('communityDetails.featuredTitle', 'President — ChessSpirit Club')}
                       </h2>
-                      <p className="text-xl text-cyan-700 dark:text-cyan-400 font-semibold">ESPRIT</p>
+                      <p className="text-xl text-cyan-700 dark:text-cyan-400 font-semibold">
+                        {t('communityDetails.featuredOrg', 'ESPRIT')}
+                      </p>
                     </div>
                   </div>
 
                   <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                    Organized chess tournaments and structured training sessions. Focused on improving performance,
-                    building consistency, and keeping a friendly competitive spirit inside the club.
+                    {t(
+                      'communityDetails.featuredDescription',
+                      'Organized chess tournaments and structured training sessions. Focused on improving performance, building consistency, and keeping a friendly competitive spirit inside the club.'
+                    )}
                   </p>
 
                   <div className="grid sm:grid-cols-2 gap-3">
                     <div className="p-3 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200/60 dark:border-slate-700/60">
-                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Tournaments</p>
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+                        {t('communityDetails.featuredCard1Title', 'Tournaments')}
+                      </p>
                       <p className="text-sm text-slate-600 dark:text-slate-400">
-                        Pairings, schedules, rounds, results
+                        {t('communityDetails.featuredCard1Body', 'Pairings, schedules, rounds, results')}
                       </p>
                     </div>
                     <div className="p-3 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200/60 dark:border-slate-700/60">
-                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Training</p>
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+                        {t('communityDetails.featuredCard2Title', 'Training')}
+                      </p>
                       <p className="text-sm text-slate-600 dark:text-slate-400">
-                        Tactics, openings, endgames
+                        {t('communityDetails.featuredCard2Body', 'Tactics, openings, endgames')}
                       </p>
                     </div>
                   </div>
@@ -156,29 +168,36 @@ export default function CommunityDetails() {
           className="mb-12"
         >
           <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-8 text-center">
-            ✨ Highlights
+            ✨ {t('communityDetails.highlightsTitle', 'Highlights')}
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {highlights.map((h, index) => (
-              <motion.div
-                key={h.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="glass-card group"
-              >
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${h.color} flex items-center justify-center text-4xl mb-4 shadow-lg`}>
-                  {h.icon}
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">
-                  {h.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {h.description}
-                </p>
-              </motion.div>
-            ))}
+            {highlights.map((h, index) => {
+              const title = t(`communityDetails.highlights.${index + 1}.title`, h.title)
+              const description = t(
+                `communityDetails.highlights.${index + 1}.description`,
+                h.description
+              )
+              return (
+                <motion.div
+                  key={h.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  className="glass-card group"
+                >
+                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${h.color} flex items-center justify-center text-4xl mb-4 shadow-lg`}>
+                    {h.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">
+                    {title}
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {description}
+                  </p>
+                </motion.div>
+              )
+            })}
           </div>
         </motion.div>
 
@@ -190,11 +209,24 @@ export default function CommunityDetails() {
           className="mb-12"
         >
           <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-8 text-center">
-            📋 Role Details
+            📋 {t('communityDetails.roleDetailsTitle', 'Role Details')}
           </h2>
 
           <div className="space-y-6">
-            {activities.map((role, index) => (
+            {activities.map((role, index) => {
+              const title = t(`communityDetails.activities.items.${role.id}.role`, role.role)
+              const organization = t(`communityDetails.activities.items.${role.id}.organization`, role.organization)
+              const year = t(`communityDetails.activities.items.${role.id}.year`, role.year)
+              const description = t(
+                `communityDetails.activities.items.${role.id}.description`,
+                role.description
+              )
+              const responsibilities = t(
+                `communityDetails.activities.items.${role.id}.responsibilities`,
+                { returnObjects: true, defaultValue: role.responsibilities }
+              ) as string[]
+
+              return (
               <motion.div
                 key={role.id}
                 initial={{ opacity: 0, x: -20 }}
@@ -212,26 +244,26 @@ export default function CommunityDetails() {
                         {role.icon}
                       </div>
                       <div className="px-4 py-1.5 rounded-full bg-cyan-500/20 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/30 dark:border-cyan-500/20 text-sm font-medium whitespace-nowrap">
-                        🏫 {role.year}
+                        🏫 {year}
                       </div>
                     </div>
 
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors mb-2">
-                        {role.role}
+                        {title}
                       </h3>
-                      <p className="text-cyan-700 dark:text-cyan-400 font-medium mb-4">{role.organization}</p>
+                      <p className="text-cyan-700 dark:text-cyan-400 font-medium mb-4">{organization}</p>
 
                       <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                        {role.description}
+                        {description}
                       </p>
 
                       <div className="space-y-2">
                         <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
-                          Key Responsibilities
+                          {t('communityDetails.responsibilitiesTitle', 'Key Responsibilities')}
                         </h4>
                         <ul className="space-y-2">
-                          {role.responsibilities.map((resp, idx) => (
+                          {responsibilities.map((resp, idx) => (
                             <li key={idx} className="flex items-start gap-2">
                               <span className="text-cyan-600 dark:text-cyan-400 mt-1 flex-shrink-0">•</span>
                               <span className="text-slate-600 dark:text-slate-400 text-sm">{resp}</span>
@@ -243,7 +275,7 @@ export default function CommunityDetails() {
                   </div>
                 </div>
               </motion.div>
-            ))}
+            )})}
           </div>
         </motion.div>
 
@@ -255,7 +287,7 @@ export default function CommunityDetails() {
           className="glass-card"
         >
           <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-8 text-center">
-            📷 Photos
+            📷 {t('communityDetails.photosTitle', 'Photos')}
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
@@ -271,12 +303,15 @@ export default function CommunityDetails() {
               >
                 <img
                   src={image}
-                  alt={`ChessSpirit photo ${index + 1}`}
+                  alt={t('communityDetails.photoAlt', {
+                    index: index + 1,
+                    defaultValue: `ChessSpirit photo ${index + 1}`,
+                  })}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-2 left-2 right-2 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                  Click to view
+                  {t('communityDetails.photoCta', 'Click to view')}
                 </div>
               </motion.div>
             ))}
@@ -303,14 +338,14 @@ export default function CommunityDetails() {
                 <button
                   onClick={() => setSelectedImage(null)}
                   className="absolute -top-12 right-0 text-white hover:text-cyan-400 transition-colors text-4xl font-light"
-                  aria-label="Close"
+                  aria-label={t('communityDetails.lightboxClose', 'Close')}
                 >
                   ×
                 </button>
 
                 <img
                   src={selectedImage}
-                  alt="Gallery preview"
+                  alt={t('communityDetails.galleryPreviewAlt', 'Gallery preview')}
                   className="w-full h-full object-contain rounded-xl"
                 />
 
@@ -323,7 +358,7 @@ export default function CommunityDetails() {
                     }}
                     className="px-4 py-2 bg-white/10 backdrop-blur-md text-white rounded-lg hover:bg-white/20 transition-colors"
                   >
-                    ← Previous
+                    {t('communityDetails.lightboxPrevious', '← Previous')}
                   </button>
                   <button
                     onClick={() => {
@@ -333,7 +368,7 @@ export default function CommunityDetails() {
                     }}
                     className="px-4 py-2 bg-white/10 backdrop-blur-md text-white rounded-lg hover:bg-white/20 transition-colors"
                   >
-                    Next →
+                    {t('communityDetails.lightboxNext', 'Next →')}
                   </button>
                 </div>
               </motion.div>

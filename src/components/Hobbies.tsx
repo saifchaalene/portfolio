@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 const hobbies = [
   {
@@ -57,6 +58,8 @@ const cardVariants = {
 }
 
 export default function Hobbies() {
+  const { t } = useTranslation()
+
   return (
     <section id="hobbies" className="py-20 bg-slate-900/30 dark:bg-slate-900/30">
       <div className="container">
@@ -66,7 +69,7 @@ export default function Hobbies() {
           viewport={{ once: true }}
           className="section-title text-center"
         >
-          🎨 Hobbies & Interests
+          🎨 {t('hobbies.title', 'Hobbies & Interests')}
         </motion.h2>
 
         <motion.p
@@ -75,11 +78,16 @@ export default function Hobbies() {
           viewport={{ once: true }}
           className="text-center text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12"
         >
-          When I'm not coding or leading community initiatives, here's what I enjoy doing.
+          {t(
+            'hobbies.subtitle',
+            "When I'm not coding or leading community initiatives, here's what I enjoy doing."
+          )}
         </motion.p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {hobbies.map((hobby, index) => {
+            const name = t(`hobbies.items.${hobby.id}.name`, hobby.name)
+            const description = t(`hobbies.items.${hobby.id}.description`, hobby.description)
             const CardContent = (
               <>
                 <div className={`absolute inset-0 bg-gradient-to-br ${hobby.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -90,16 +98,16 @@ export default function Hobbies() {
                   </div>
 
                   <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                    {hobby.name}
+                    {name}
                   </h3>
 
                   <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {hobby.description}
+                    {description}
                   </p>
 
                   {hobby.link && (
                     <div className="mt-4 text-xs text-cyan-600 dark:text-cyan-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      View Profile →
+                      {t('hobbies.viewProfile', 'View Profile →')}
                     </div>
                   )}
                 </div>

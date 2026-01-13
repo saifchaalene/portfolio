@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import resume from '../data/resume'
+import { useTranslation } from 'react-i18next'
 
 export default function Contact() {
+  const { t } = useTranslation()
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState<string>('')
 
@@ -31,10 +33,20 @@ export default function Contact() {
       const contentType = response.headers.get('content-type')
       if (!contentType || !contentType.includes('application/json')) {
         // PHP not configured - use mailto fallback
-        const mailto = `mailto:${resume.contact.email}?subject=${encodeURIComponent('Contact from portfolio: ' + formData.name)}&body=${encodeURIComponent(formData.message + '\n\nFrom: ' + formData.name + ' <' + formData.email + '>')}`
+        const subject = t('contact.mailSubject', {
+          name: formData.name,
+          defaultValue: `Contact from portfolio: ${formData.name}`,
+        })
+        const body = t('contact.mailBody', {
+          message: formData.message,
+          name: formData.name,
+          email: formData.email,
+          defaultValue: `${formData.message}\n\nFrom: ${formData.name} <${formData.email}>`,
+        })
+        const mailto = `mailto:${resume.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
         window.location.href = mailto
         setStatus('success')
-        setMessage('Opening your email client...')
+        setMessage(t('contact.status.openingEmail', 'Opening your email client...'))
         form.reset()
         return
       }
@@ -43,18 +55,28 @@ export default function Contact() {
 
       if (response.ok && data.success) {
         setStatus('success')
-        setMessage(data.message || 'Message sent successfully!')
+        setMessage(data.message || t('contact.status.success', 'Message sent successfully!'))
         form.reset()
       } else {
         setStatus('error')
-        setMessage(data.message || 'Failed to send message. Please try again.')
+        setMessage(data.message || t('contact.status.error', 'Failed to send message. Please try again.'))
       }
     } catch (error) {
       // Fallback to mailto if fetch fails
-      const mailto = `mailto:${resume.contact.email}?subject=${encodeURIComponent('Contact from portfolio: ' + formData.name)}&body=${encodeURIComponent(formData.message + '\n\nFrom: ' + formData.name + ' <' + formData.email + '>')}`
+      const subject = t('contact.mailSubject', {
+        name: formData.name,
+        defaultValue: `Contact from portfolio: ${formData.name}`,
+      })
+      const body = t('contact.mailBody', {
+        message: formData.message,
+        name: formData.name,
+        email: formData.email,
+        defaultValue: `${formData.message}\n\nFrom: ${formData.name} <${formData.email}>`,
+      })
+      const mailto = `mailto:${resume.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
       window.location.href = mailto
       setStatus('success')
-      setMessage('Opening your email client...')
+      setMessage(t('contact.status.openingEmail', 'Opening your email client...'))
       form.reset()
       console.error('Error sending message:', error)
     }
@@ -75,7 +97,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="section-title text-center"
         >
-          📬 Get In Touch
+          📬 {t('contact.title', 'Get In Touch')}
         </motion.h2>
 
         <motion.p
@@ -84,7 +106,10 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12"
         >
-          Have a question or want to work together? Feel free to reach out!
+          {t(
+            'contact.subtitle',
+            'Have a question or want to work together? Feel free to reach out!'
+          )}
         </motion.p>
 
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
@@ -95,7 +120,9 @@ export default function Contact() {
             className="space-y-6"
           >
             <div className="glass-card">
-              <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-6">Contact Information</h3>
+              <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-6">
+                {t('contact.infoTitle', 'Contact Information')}
+              </h3>
               
               <div className="space-y-4">
                 <motion.a
@@ -109,7 +136,9 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 dark:text-slate-500">Email</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-500">
+                      {t('contact.labels.email', 'Email')}
+                    </div>
                     <div className="font-medium">{resume.contact.email}</div>
                   </div>
                 </motion.a>
@@ -125,7 +154,9 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 dark:text-slate-500">Phone</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-500">
+                      {t('contact.labels.phone', 'Phone')}
+                    </div>
                     <div className="font-medium">{resume.contact.phone}</div>
                   </div>
                 </motion.a>
@@ -143,8 +174,10 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 dark:text-slate-500">LinkedIn</div>
-                    <div className="font-medium">Connect with me</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-500">
+                      {t('contact.labels.linkedin', 'LinkedIn')}
+                    </div>
+                    <div className="font-medium">{t('contact.actions.connect', 'Connect with me')}</div>
                   </div>
                 </motion.a>
 
@@ -161,8 +194,10 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 dark:text-slate-500">GitHub</div>
-                    <div className="font-medium">Check my code</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-500">
+                      {t('contact.labels.github', 'GitHub')}
+                    </div>
+                    <div className="font-medium">{t('contact.actions.checkCode', 'Check my code')}</div>
                   </div>
                 </motion.a>
               </div>
@@ -175,38 +210,46 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <form onSubmit={onSubmit} className="glass-card">
-              <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-6">Send a Message</h3>
+              <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-6">
+                {t('contact.form.title', 'Send a Message')}
+              </h3>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Name</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    {t('contact.form.labels.name', 'Name')}
+                  </label>
                   <input
                     name="from_name"
                     required
                     className="w-full px-4 py-3 rounded-lg bg-blue-50 dark:bg-slate-700/50 border border-cyan-300 dark:border-slate-600 text-slate-800 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
-                    placeholder="John Doe"
+                    placeholder={t('contact.form.placeholders.name', 'John Doe')}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    {t('contact.form.labels.email', 'Email')}
+                  </label>
                   <input
                     name="reply_to"
                     type="email"
                     required
                     className="w-full px-4 py-3 rounded-lg bg-blue-50 dark:bg-slate-700/50 border border-cyan-300 dark:border-slate-600 text-slate-800 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
-                    placeholder="john@example.com"
+                    placeholder={t('contact.form.placeholders.email', 'john@example.com')}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    {t('contact.form.labels.message', 'Message')}
+                  </label>
                   <textarea
                     name="message"
                     rows={5}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-blue-50 dark:bg-slate-700/50 border border-cyan-300 dark:border-slate-600 text-slate-800 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none"
-                    placeholder="Your message..."
+                    placeholder={t('contact.form.placeholders.message', 'Your message...')}
                   />
                 </div>
 
@@ -217,7 +260,9 @@ export default function Contact() {
                   whileTap={{ scale: status === 'loading' ? 1 : 0.98 }}
                   className={`w-full btn btn-primary ${status === 'loading' ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
-                  {status === 'loading' ? 'Sending...' : 'Send Message 🚀'}
+                  {status === 'loading'
+                    ? t('contact.form.sending', 'Sending...')
+                    : `${t('contact.form.submit', 'Send Message')} 🚀`}
                 </motion.button>
 
                 {message && (

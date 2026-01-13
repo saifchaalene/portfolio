@@ -1,8 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import resume from '../data/resume'
+import { useTranslation } from 'react-i18next'
 
 export default function Footer() {
+  const { t } = useTranslation()
+
   return (
     <footer className="py-8 border-t border-cyan-200/50 dark:border-slate-800/50 bg-white/80 dark:bg-slate-900/50">
       <div className="container">
@@ -13,7 +16,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-slate-600 dark:text-slate-400 text-sm"
           >
-            © {new Date().getFullYear()} {resume.name}. All rights reserved.
+            © {new Date().getFullYear()} {resume.name}. {t('footer.rights', 'All rights reserved.')}
           </motion.div>
 
           <motion.div
@@ -62,7 +65,12 @@ export default function Footer() {
           viewport={{ once: true }}
           className="text-center text-xs text-slate-500 dark:text-slate-500 mt-4 pt-4 border-t border-cyan-200/30 dark:border-slate-800/30"
         >
-          Built with <span className="text-cyan-600 dark:text-cyan-400 font-semibold">React</span>, <span className="text-cyan-600 dark:text-cyan-400 font-semibold">TypeScript</span>, <span className="text-cyan-600 dark:text-cyan-400 font-semibold">Tailwind CSS</span>, and <span className="text-cyan-600 dark:text-cyan-400 font-semibold">Framer Motion</span>
+          {t('footer.builtWith', 'Built with')}{' '}
+          <span className="text-cyan-600 dark:text-cyan-400 font-semibold">React</span>,{' '}
+          <span className="text-cyan-600 dark:text-cyan-400 font-semibold">TypeScript</span>,{' '}
+          <span className="text-cyan-600 dark:text-cyan-400 font-semibold">Tailwind CSS</span>,{' '}
+          {t('footer.and', 'and')}{' '}
+          <span className="text-cyan-600 dark:text-cyan-400 font-semibold">Framer Motion</span>
         </motion.div>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import resume from '../data/resume'
+import { useTranslation } from 'react-i18next'
 
 const cardVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -12,6 +13,8 @@ const cardVariants = {
 }
 
 export default function Timeline() {
+  const { t } = useTranslation()
+
   return (
     <section id="experience" className="py-20 bg-slate-900/30">
       <div className="container">
@@ -21,7 +24,7 @@ export default function Timeline() {
           viewport={{ once: true }}
           className="section-title text-center"
         >
-          💼 Experience & Education
+          💼 {t('timeline.title', 'Experience & Education')}
         </motion.h2>
 
         <div className="mt-12 space-y-8">
@@ -33,11 +36,22 @@ export default function Timeline() {
               className="text-2xl font-bold mb-6 flex items-center gap-3"
             >
               <span className="text-cyan-500 dark:text-cyan-400">🚀</span>
-              <span className="text-slate-800 dark:text-slate-200">Work Experience</span>
+              <span className="text-slate-800 dark:text-slate-200">
+                {t('timeline.work', 'Work Experience')}
+              </span>
             </motion.h3>
             
             <div className="space-y-6">
-              {resume.experience.map((item, index) => (
+              {resume.experience.map((item, index) => {
+                const title = t(`experience.items.${item.id}.title`, item.title)
+                const role = t(`experience.items.${item.id}.role`, item.role)
+                const period = t(`experience.items.${item.id}.period`, item.period)
+                const details = t(`experience.items.${item.id}.details`, {
+                  returnObjects: true,
+                  defaultValue: item.details,
+                }) as string[]
+
+                return (
                 <motion.div
                   key={item.id}
                   variants={cardVariants}
@@ -53,9 +67,9 @@ export default function Timeline() {
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
                       <div className="flex-1">
                         <h4 className="text-xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                          {item.title}
+                          {title}
                         </h4>
-                        <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{item.role}</p>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{role}</p>
                         <div className="flex flex-wrap gap-2 mt-3">
                           {item.tech.map((tech) => (
                             <span 
@@ -68,11 +82,11 @@ export default function Timeline() {
                         </div>
                       </div>
                       <div className="text-sm text-slate-500 dark:text-slate-500 font-medium whitespace-nowrap">
-                        📅 {item.period}
+                        📅 {period}
                       </div>
                     </div>
                     <ul className="mt-4 space-y-2 text-slate-700 dark:text-slate-300">
-                      {item.details.map((detail, i) => (
+                      {details.map((detail, i) => (
                         <li key={i} className="flex gap-3">
                           <span className="text-cyan-600 dark:text-cyan-400 mt-1">•</span>
                           <span>{detail}</span>
@@ -81,7 +95,7 @@ export default function Timeline() {
                     </ul>
                   </div>
                 </motion.div>
-              ))}
+              )})}
             </div>
           </div>
 
@@ -93,11 +107,22 @@ export default function Timeline() {
               className="text-2xl font-bold mb-6 flex items-center gap-3"
             >
               <span className="text-cyan-500 dark:text-cyan-400">🎓</span>
-              <span className="text-slate-800 dark:text-slate-200">Education</span>
+              <span className="text-slate-800 dark:text-slate-200">
+                {t('timeline.education', 'Education')}
+              </span>
             </motion.h3>
             
             <div className="grid gap-6 md:grid-cols-2">
-              {resume.education.map((edu, index) => (
+              {resume.education.map((edu, index) => {
+                const title = t(`education.items.${edu.id}.title`, edu.title)
+                const org = t(`education.items.${edu.id}.org`, edu.org)
+                const period = t(`education.items.${edu.id}.period`, edu.period)
+                const details = t(`education.items.${edu.id}.details`, {
+                  returnObjects: true,
+                  defaultValue: edu.details,
+                }) as string[]
+
+                return (
                 <motion.div
                   key={edu.id}
                   variants={cardVariants}
@@ -110,13 +135,13 @@ export default function Timeline() {
                 >
                   <div className="flex justify-between items-start mb-3">
                     <div>
-                      <h4 className="font-bold text-lg text-slate-800 dark:text-slate-100">{edu.title}</h4>
-                      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{edu.org}</p>
+                      <h4 className="font-bold text-lg text-slate-800 dark:text-slate-100">{title}</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{org}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-cyan-600 dark:text-cyan-400 font-medium mb-3">📅 {edu.period}</p>
+                  <p className="text-sm text-cyan-600 dark:text-cyan-400 font-medium mb-3">📅 {period}</p>
                   <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                    {edu.details.map((detail, i) => (
+                    {details.map((detail, i) => (
                       <li key={i} className="flex gap-2">
                         <span className="text-cyan-600 dark:text-cyan-400">✓</span>
                         <span>{detail}</span>
@@ -124,7 +149,7 @@ export default function Timeline() {
                     ))}
                   </ul>
                 </motion.div>
-              ))}
+              )})}
             </div>
           </div>
         </div>

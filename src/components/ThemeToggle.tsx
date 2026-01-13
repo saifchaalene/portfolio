@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 export default function ThemeToggle() {
+  const { t } = useTranslation()
   const [dark, setDark] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme')
@@ -25,7 +27,7 @@ export default function ThemeToggle() {
 
   return (
     <motion.button
-      aria-label="Toggle theme"
+      aria-label={t('themeToggle.label', 'Toggle theme')}
       onClick={() => setDark((d) => !d)}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}

@@ -2,8 +2,10 @@ import React, { useMemo, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { projects } from '../data/projects'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 export default function ProjectDetails() {
+  const { t } = useTranslation()
   const { projectId } = useParams<{ projectId: string }>()
   const navigate = useNavigate()
 
@@ -31,18 +33,39 @@ export default function ProjectDetails() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">
-            Project Not Found
+            {t('projectDetails.notFoundTitle', 'Project Not Found')}
           </h1>
           <button
             onClick={() => navigate('/')}
             className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all"
           >
-            ← Back to Home
+            ← {t('projectDetails.notFoundBack', 'Back to Home')}
           </button>
         </div>
       </div>
     )
   }
+
+  const title = t(`projects.items.${project.id}.title`, project.title)
+  const description = t(`projects.items.${project.id}.description`, project.description)
+  const detailedDescription = project.detailedDescription
+    ? t(`projects.items.${project.id}.detailedDescription`, project.detailedDescription)
+    : null
+  const metrics = project.metrics
+    ? (t(`projects.items.${project.id}.metrics`, {
+        returnObjects: true,
+        defaultValue: project.metrics,
+      }) as string[])
+    : []
+  const keyFeatures = project.keyFeatures
+    ? (t(`projects.items.${project.id}.keyFeatures`, {
+        returnObjects: true,
+        defaultValue: project.keyFeatures,
+      }) as string[])
+    : []
+  const typeLabel = project.type
+    ? t(`projects.types.${project.type.toLowerCase()}`, project.type)
+    : null
 
   return (
     <div className="min-h-screen py-20 bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
@@ -55,7 +78,7 @@ export default function ProjectDetails() {
           className="mb-8 flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
         >
           <span className="text-xl">←</span>
-          <span className="font-medium">Back to Projects</span>
+          <span className="font-medium">{t('projectDetails.backToProjects', 'Back to Projects')}</span>
         </motion.button>
 
         {/* Project Header */}
@@ -66,11 +89,11 @@ export default function ProjectDetails() {
         >
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <h1 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100">
-              {project.title}
+              {title}
             </h1>
             {project.type && (
               <span className="px-4 py-1.5 rounded-full bg-cyan-500/20 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/30 dark:border-cyan-500/20 font-semibold text-sm">
-                {project.type} • {project.year}
+                {typeLabel} • {project.year}
               </span>
             )}
             {project.duration && (
@@ -81,25 +104,25 @@ export default function ProjectDetails() {
           </div>
 
           <p className="text-slate-600 dark:text-slate-400 text-lg mb-6">
-            {project.description}
+            {description}
           </p>
 
-          {project.detailedDescription && (
+          {detailedDescription && (
             <div className="mb-6 p-6 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-slate-800 dark:to-slate-800 border border-cyan-200 dark:border-slate-700">
               <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                {project.detailedDescription}
+                {detailedDescription}
               </p>
             </div>
           )}
 
           {/* Metrics */}
-          {project.metrics && project.metrics.length > 0 && (
+          {metrics.length > 0 && (
             <div className="mb-6 p-6 rounded-xl bg-gradient-to-br from-violet-50 to-blue-50 dark:from-slate-800 dark:to-slate-800 border border-violet-200 dark:border-slate-700">
               <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-                📊 Key Metrics & Impact
+                📊 {t('projectDetails.metricsTitle', 'Key Metrics & Impact')}
               </h3>
               <div className="grid md:grid-cols-2 gap-3">
-                {project.metrics.map((metric, index) => (
+                {metrics.map((metric, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-3 rounded-lg bg-white/50 dark:bg-slate-900/30"
@@ -115,7 +138,7 @@ export default function ProjectDetails() {
           {/* Tech Stack */}
           <div className="mb-6">
             <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 uppercase tracking-wide">
-              Technologies Used
+              {t('projectDetails.techUsed', 'Technologies Used')}
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.tech.map((tech) => (
@@ -138,7 +161,7 @@ export default function ProjectDetails() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View on GitHub →
+                {t('projectDetails.viewOnGithub', 'View on GitHub →')}
               </a>
             )}
             {project.demo && (
@@ -148,7 +171,7 @@ export default function ProjectDetails() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Live Demo →
+                {t('projectDetails.liveDemo', 'Live Demo →')}
               </a>
             )}
           </div>
@@ -162,7 +185,7 @@ export default function ProjectDetails() {
           className="glass-card"
         >
           <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6">
-            📸 Project Overview
+            📸 {t('projectDetails.overviewTitle', 'Project Overview')}
           </h2>
 
           {/* Main (click to open) */}
@@ -170,16 +193,16 @@ export default function ProjectDetails() {
             type="button"
             onClick={() => setIsLightboxOpen(true)}
             className="relative overflow-hidden rounded-xl mb-4 aspect-video bg-slate-200 dark:bg-slate-700 w-full focus:outline-none focus:ring-2 focus:ring-cyan-400/60"
-            aria-label="Open image preview"
+            aria-label={t('projectDetails.openImagePreview', 'Open image preview')}
           >
             <img
               src={activeImage || project.image}
-              alt={project.title}
+              alt={title}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity bg-slate-900/20 flex items-center justify-center">
               <span className="px-4 py-2 rounded-lg bg-white/80 text-slate-900 text-sm font-semibold">
-                Click to zoom
+                {t('projectDetails.clickToZoom', 'Click to zoom')}
               </span>
             </div>
           </button>
@@ -188,7 +211,7 @@ export default function ProjectDetails() {
           {galleryImages.length > 1 && (
             <div className="mb-6">
               <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 uppercase tracking-wide">
-                Additional Screenshots
+                {t('projectDetails.additionalScreenshots', 'Additional Screenshots')}
               </h3>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
                 {galleryImages.map((src) => {
@@ -204,7 +227,7 @@ export default function ProjectDetails() {
                           ? 'border-cyan-500 ring-2 ring-cyan-400/40'
                           : 'border-white/20 dark:border-slate-700 hover:border-cyan-300',
                       ].join(' ')}
-                      aria-label="Select screenshot"
+                      aria-label={t('projectDetails.selectScreenshot', 'Select screenshot')}
                     >
                       <img src={src} alt="" className="w-full h-full object-cover" />
                     </button>
@@ -215,13 +238,13 @@ export default function ProjectDetails() {
           )}
 
           {/* Key Features */}
-          {project.keyFeatures && project.keyFeatures.length > 0 ? (
+          {keyFeatures.length > 0 ? (
             <div className="mb-6">
               <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-                ✨ Key Features
+                ✨ {t('projectDetails.keyFeatures', 'Key Features')}
               </h3>
               <div className="grid md:grid-cols-2 gap-4">
-                {project.keyFeatures.map((feature, index) => (
+                {keyFeatures.map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 rounded-xl bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-slate-800 dark:to-slate-800 border border-cyan-200 dark:border-slate-700 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300"
@@ -265,14 +288,14 @@ export default function ProjectDetails() {
                   onClick={() => setIsLightboxOpen(false)}
                   className="px-4 py-2 rounded-lg bg-white/10 text-white hover:bg-white/15 transition-colors"
                 >
-                  ✕ Close
+                  ✕ {t('projectDetails.close', 'Close')}
                 </button>
               </div>
 
               <div className="relative overflow-hidden rounded-xl bg-slate-900">
                 <img
                   src={activeImage || project.image}
-                  alt={project.title}
+                  alt={title}
                   className="w-full max-h-[78vh] object-contain"
                 />
               </div>

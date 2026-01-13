@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 type ProjectFilter = 'all' | 'professional' | 'academic'
 
@@ -15,6 +16,7 @@ const cardVariants = {
 }
 
 export default function Projects() {
+  const { t } = useTranslation()
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>('all')
 
   const filteredProjects = activeFilter === 'all' 
@@ -33,7 +35,7 @@ export default function Projects() {
           viewport={{ once: true }}
           className="section-title text-center"
         >
-          🚀 Featured Projects
+          🚀 {t('projects.title', 'Featured Projects')}
         </motion.h2>
 
         <motion.p
@@ -42,7 +44,10 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8"
         >
-          Here are some of my recent projects showcasing my skills in full-stack development and modern web technologies.
+          {t(
+            'projects.subtitle',
+            'Here are some of my recent projects showcasing my skills in full-stack development and modern web technologies.'
+          )}
         </motion.p>
 
         {/* Filter Buttons */}
@@ -53,9 +58,9 @@ export default function Projects() {
           className="flex flex-wrap justify-center gap-3 mb-12"
         >
           {[
-            { id: 'all', label: 'All Projects', icon: '📂' },
-            { id: 'professional', label: 'Professional', icon: '💼' },
-            { id: 'academic', label: 'Academic', icon: '🎓' }
+            { id: 'all', label: t('projects.filters.all', 'All Projects'), icon: '📂' },
+            { id: 'professional', label: t('projects.filters.professional', 'Professional'), icon: '💼' },
+            { id: 'academic', label: t('projects.filters.academic', 'Academic'), icon: '🎓' }
           ].map((filter) => (
             <motion.button
               key={filter.id}
@@ -81,7 +86,17 @@ export default function Projects() {
           transition={{ duration: 0.3 }}
           className="projects"
         >
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project, index) => {
+            const title = t(`projects.items.${project.id}.title`, project.title)
+            const description = t(
+              `projects.items.${project.id}.description`,
+              project.description
+            )
+            const typeLabel = project.type
+              ? t(`projects.types.${project.type.toLowerCase()}`, project.type)
+              : null
+
+            return (
             <motion.article
               key={project.id}
               variants={cardVariants}
@@ -93,15 +108,15 @@ export default function Projects() {
               className="project-card group"
             >
               <div className="relative overflow-hidden rounded-xl mb-4 aspect-video bg-slate-200 dark:bg-slate-700">
-                <img 
+                <img
                   src={project.image} 
-                  alt={project.title}
+                  alt={title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
                 {project.type && (
                   <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-cyan-500/90 text-white text-xs font-semibold backdrop-blur-sm">
-                    {project.type} • {project.year}
+                    {typeLabel} • {project.year}
                   </div>
                 )}
                 {project.duration && (
@@ -112,11 +127,11 @@ export default function Projects() {
               </div>
 
               <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                {project.title}
+                {title}
               </h3>
               
               <p className="text-slate-600 dark:text-slate-400 text-sm mt-2 line-clamp-2">
-                {project.description}
+                {description}
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
@@ -138,18 +153,19 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    GitHub →
+                    {t('projects.buttons.github', 'GitHub →')}
                   </a>
                 )}
                 <Link 
                   to={`/project/${project.id}`}
                   className={`${project.github ? 'flex-1' : 'w-full'} text-center px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500 transition-all text-sm font-medium`}
                 >
-                  View Details →
+                  {t('projects.buttons.viewDetails', 'View Details →')}
                 </Link>
               </div>
             </motion.article>
-          ))}
+            )
+          })}
         </motion.div>
       </div>
     </section>

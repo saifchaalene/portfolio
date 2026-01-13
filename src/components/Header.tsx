@@ -3,8 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import { motion } from 'framer-motion'
 import resume from '../data/resume'
+import LanguageSwitcher from './LanguageSwitcher'
+import { useTranslation } from 'react-i18next'
 
 export default function Header() {
+  const { t } = useTranslation()
   const location = useLocation()
   const isHomePage = location.pathname === '/'
 
@@ -34,7 +37,7 @@ export default function Header() {
           >
             <img
               src={`${import.meta.env.BASE_URL}assets/images/logo.png`}
-              alt="logo"
+              alt={t('nav.logoAlt', 'Logo')}
               className="h-10 w-10 rounded-lg"
             />
             <span className="brand text-lg sm:text-xl">
@@ -47,11 +50,11 @@ export default function Header() {
           {isHomePage && (
             <nav className="hidden md:flex gap-6 text-slate-300 dark:text-slate-300">
               {[
-                { href: '#about', label: 'About' },
-                { href: '#skills', label: 'Skills' },
-                { href: '#projects', label: 'Projects' },
-                { href: '#volunteering', label: 'Community' },
-                { href: '#contact', label: 'Contact' },
+                { href: '#about', label: t('nav.about', 'About') },
+                { href: '#skills', label: t('nav.skills', 'Skills') },
+                { href: '#projects', label: t('nav.projects', 'Projects') },
+                { href: '#volunteering', label: t('nav.community', 'Community') },
+                { href: '#contact', label: t('nav.contact', 'Contact') },
               ].map((link) => (
                 <motion.a
                   key={link.href}
@@ -71,6 +74,8 @@ export default function Header() {
               ))}
             </nav>
           )}
+
+          <LanguageSwitcher />
 
           <div className="hidden sm:flex items-center gap-3">
             <motion.a

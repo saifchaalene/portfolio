@@ -1,8 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import resume from '../data/resume'
+import { useTranslation } from 'react-i18next'
 
 export default function Hero() {
+  const { t } = useTranslation()
+  const role = t('resume.role', resume.role)
+  const profile = t('resume.profile', resume.profile)
+
   return (
     <section className="relative py-20 sm:py-32 overflow-hidden">
       {/* Animated background gradient orbs */}
@@ -63,7 +68,9 @@ export default function Hero() {
               transition={{ delay: 0.2 }}
               className="inline-block mb-4 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 dark:from-cyan-500/10 dark:to-blue-500/10 border border-cyan-500/20 dark:border-cyan-500/20"
             >
-              <span className="text-sm font-medium text-cyan-600 dark:text-cyan-400">👋 Welcome to my portfolio</span>
+              <span className="text-sm font-medium text-cyan-600 dark:text-cyan-400">
+                👋 {t('hero.welcome', 'Welcome to my portfolio')}
+              </span>
             </motion.div>
 
             <motion.h1
@@ -85,9 +92,9 @@ export default function Hero() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="mt-6 text-xl text-slate-600 dark:text-slate-400 leading-relaxed"
             >
-              <span className="text-cyan-600 dark:text-cyan-400 font-semibold">{resume.role}</span>
+              <span className="text-cyan-600 dark:text-cyan-400 font-semibold">{role}</span>
               <br />
-              {resume.profile}
+              {profile}
             </motion.p>
 
             <motion.div
@@ -102,7 +109,7 @@ export default function Hero() {
                   download="Saif_Chaalane_CV.pdf"
                   className="btn btn-primary"
                 >
-                  📥 Download CV
+                  📥 {t('hero.downloadCv', 'Download CV')}
                 </a>
 
                 <a
@@ -111,7 +118,7 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   className="btn btn-secondary"
                 >
-                  👀 View CV
+                  👀 {t('hero.viewCv', 'View CV')}
                 </a>
               </div>
 

@@ -1,0 +1,356 @@
+{
+  "nav": {
+    "logoAlt": "Logo",
+    "about": "A propos",
+    "skills": "Competences",
+    "projects": "Projets",
+    "community": "Communaute",
+    "contact": "Contact"
+  },
+  "languageSwitcher": {
+    "label": "Langue",
+    "english": "Anglais",
+    "french": "Francais",
+    "switchTo": "Passer la langue en {{language}}"
+  },
+  "themeToggle": {
+    "label": "Changer le theme"
+  },
+  "hero": {
+    "welcome": "Bienvenue sur mon portfolio",
+    "downloadCv": "Telecharger le CV",
+    "viewCv": "Voir le CV"
+  },
+  "about": {
+    "title": "A propos de moi",
+    "journey": {
+      "title": "Mon parcours",
+      "body": "Je suis un ingenieur logiciel full-stack titulaire d'un diplome d'ingenieur en informatique de l'ESPRIT. J'aime construire des produits fiables qui combinent une architecture propre, des bases backend solides et des interfaces modernes."
+    },
+    "do": {
+      "title": "Ce que je fais",
+      "body": "Je developpe des solutions web de bout en bout avec React et Angular cote frontend, et des stacks backend comme Node.js, PHP (dont Joomla) et Django. Je suis a l'aise pour concevoir des interfaces de programmation d'applications REST (API REST), integrer des services tiers et livrer des fonctionnalites de l'idee a la production."
+    },
+    "approach": {
+      "title": "Mon approche",
+      "body": "Je privilegie un code maintenable, une collaboration claire et une livraison reguliere. Je fais attention aux performances, aux tests et a l'automatisation pratique comme l'integration et le deploiement continus (CI/CD) pour livrer vite sans sacrifier la qualite."
+    },
+    "beyond": {
+      "title": "Au-dela du code",
+      "body": "Je valorise le travail d'equipe et le leadership. A l'universite, j'ai ete president du ChessSpirit Club, en organisant des activites et en construisant une communaute solidaire - des competences que j'apporte aux equipes d'ingenierie et aux projets agiles."
+    }
+  },
+  "skills": {
+    "title": "Competences techniques",
+    "subtitle": "Un apercu complet des technologies et outils que j'utilise pour construire des applications web modernes.",
+    "categories": {
+      "all": "Toutes les competences",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Base de donnees",
+      "devops": "DevOps",
+      "languages": "Langages",
+      "cms": "CMS / CRM"
+    }
+  },
+  "timeline": {
+    "title": "Experience et formation",
+    "work": "Experience professionnelle",
+    "education": "Formation"
+  },
+  "resume": {
+    "role": "Responsable IT - Developpeur full-stack (React/PHP) et support systemes",
+    "profile": "Ingenieur logiciel avec une experience concrete dans la modernisation de plateformes Joomla/CiviCRM et la creation d'applications React et TypeScript evolutives. Realisation d'API REST en PHP et MySQL, integration de l'authentification et des flux de donnees (CORS, tokens), et conception d'interfaces reactives avec Vite et Tailwind CSS. A l'aise avec les deploiements Linux (Apache/Nginx, php-fpm), les pipelines CI/CD et le support systemes au quotidien au sein d'equipes agiles."
+  },
+  "experience": {
+    "items": {
+      "w1": {
+        "title": "Modernisation CRM (Joomla + CiviCRM) — Bureau International des Expositions (BIE), Paris",
+        "role": "Stagiaire ingenieur logiciel",
+        "period": "mars 2025 – sept 2025",
+        "details": [
+          "Mise a niveau de Joomla 3 vers Joomla 5 et migration de CiviCRM 4.7 vers CiviCRM 6",
+          "Refonte des composants personnalises, mise a jour des API depreciees et compatibilite avec PHP 8.2 et la nouvelle architecture Joomla",
+          "Implementation d'endpoints REST dans Joomla et integration avec un frontend React + Vite",
+          "Optimisation des flux de donnees et amelioration des workflows delegues/Etats membres, des performances et de la maintenabilite"
+        ]
+      },
+      "w2": {
+        "title": "Marketplace e-commerce — FIDNESS",
+        "role": "Developpeur full stack (freelance)",
+        "period": "oct 2024 – jan 2025",
+        "details": [
+          "Developpement des modules metiers cles : catalogue produits, panier, coupons, commandes et authentification OTP par email",
+          "Construction de microservices Golang (authentification, gestion produits, verification de paiement) avec une architecture propre et modulaire",
+          "Integration d'API bancaires externes pour la validation des transactions et les callbacks en temps reel"
+        ]
+      },
+      "w3": {
+        "title": "Livraison de logiciels d'entreprise — WEVIOO, Tunis",
+        "role": "Stagiaire developpeur logiciel",
+        "period": "juin 2024 – aout 2024",
+        "details": [
+          "Implementation de services backend RESTful en C#/.NET",
+          "Creation de composants Angular reutilisables",
+          "Amelioration de la qualite du code via revues et documentation"
+        ]
+      },
+      "w4": {
+        "title": "Stage full-stack — ALFA Computers, Mahdia",
+        "role": "Stagiaire full stack",
+        "period": "aout 2023",
+        "details": [
+          "Developpement de modules frontend en React integres a des API REST",
+          "Support du developpement backend avec Node.js + MongoDB",
+          "Participation aux taches de deploiement et au support de mise en production"
+        ]
+      }
+    }
+  },
+  "education": {
+    "items": {
+      "e1": {
+        "title": "Diplome d'ingenieur en informatique",
+        "org": "ESPRIT — Tunis, Tunisie",
+        "period": "2022 – 2025",
+        "details": [
+          "Ingenierie logicielle full-stack et architectures web modernes",
+          "Methodologies Agile/Scrum et developpement pret pour le cloud",
+          "Forte orientation React, Angular, Node.js, Spring Boot, architecture propre, DevOps et pipelines CI/CD"
+        ]
+      },
+      "e2": {
+        "title": "Cycle preparatoire aux etudes d'ingenieur",
+        "org": "IPEIB — Bizerte, Tunisie",
+        "period": "2020 – 2022",
+        "details": [
+          "Mathematiques avancees, physique, algorithmique et resolution de problemes",
+          "Preparation aux concours nationaux d'entree en ecole d'ingenieurs"
+        ]
+      },
+      "e3": {
+        "title": "Baccalaureat en mathematiques",
+        "org": "Lycee — Bizerte, Tunisie",
+        "period": "2018",
+        "details": [
+          "Diplome national axee sur les mathematiques avancees et le raisonnement scientifique"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "title": "Projets a la une",
+    "subtitle": "Voici quelques-uns de mes projets recents mettant en avant mes competences en developpement full-stack et technologies web modernes.",
+    "filters": {
+      "all": "Tous les projets",
+      "professional": "Professionnel",
+      "academic": "Academique"
+    },
+    "types": {
+      "professional": "Professionnel",
+      "academic": "Academique"
+    },
+    "buttons": {
+      "viewDetails": "Voir les details →",
+      "github": "GitHub →"
+    },
+    "items": {
+      "p1": {
+        "title": "Modernisation du CRM BIE (Joomla 5 + CiviCRM 6 + React)",
+        "description": "Modernisation d'un CRM interne en migrant Joomla 3 vers Joomla 5 et CiviCRM 4.7 vers CiviCRM 6. Creation de nouveaux endpoints REST et integration d'un frontend React + Vite avec Tailwind CSS, ameliorant les workflows et la maintenabilite."
+      },
+      "p2": {
+        "title": "FIDNESS — Marketplace e-commerce + microservices Golang",
+        "description": "Contribution a la vitrine d'un marketplace en ligne et aux modules metiers cles (catalogue, panier, coupons, commandes, authentification OTP). Construction de microservices Golang et integration d'API bancaires externes pour la validation des transactions et les callbacks en temps reel."
+      },
+      "p3": {
+        "title": "WEVIOO — Services REST .NET + composants Angular",
+        "description": "Implementation de services backend RESTful en C#/.NET et creation de composants Angular reutilisables. Contribution a l'amelioration de la qualite du code via revues et documentation."
+      },
+      "p4": {
+        "title": "ALFA Computers — Frontend React + Node.js et MongoDB",
+        "description": "Developpement de modules frontend en React integres a des API REST et support du backend avec Node.js et MongoDB. Participation aux taches de deploiement et au support de mise en production."
+      },
+      "p5": {
+        "title": "Plateforme de streaming musical",
+        "description": "Application web de streaming musical avec gestion de playlists, sessions utilisateurs et authentification OAuth2/JWT securisee. UI responsive realisee avec Tailwind CSS."
+      },
+      "p6": {
+        "title": "DevOps Foyer — Pipeline CI/CD",
+        "description": "Conception et deploiement d'un pipeline CI/CD avec builds et tests automatises, analyse SonarQube, generation d'images Docker et orchestration Jenkins. Supervision avec Grafana et stockage des artefacts sur Nexus."
+      },
+      "p7": {
+        "title": "EpicJourneys — Gestion de voyages",
+        "description": "Application Java MVC avec backend MySQL pour gerer evenements, itineraires, reservations et interactions utilisateurs."
+      },
+      "p8": {
+        "title": "Co & Co — Plateforme de covoiturage et colocation",
+        "description": "Plateforme full-stack combinant un backend Spring Boot et un frontend Angular, offrant des annonces, profils utilisateurs et fonctionnalites de recherche pour les etudiants."
+      }
+    }
+  },
+  "volunteering": {
+    "title": "Activites",
+    "subtitle": "Experience de leadership et d'organisation via les activites du club etudiant, axee sur la coordination, le mentorat et l'engagement communautaire.",
+    "items": {
+      "1": {
+        "role": "President",
+        "organization": "ChessSpirit Club (ESPRIT)",
+        "year": "ESPRIT",
+        "description": "Organisation de tournois d'echecs internes et inter-ecoles, gestion de la logistique (inscriptions, plannings, coordination des participants). Animation de seances d'entrainement regulieres axees sur la tactique, les ouvertures et le jeu competitif. Encadrement des membres du club, accompagnement des joueurs debutants et intermediaires, et promotion de la reflexion strategique, de la discipline et du travail d'equipe."
+      }
+    },
+    "metrics": {
+      "tournaments": "Tournois organises",
+      "trainingSessions": "Sessions d'entrainement animees",
+      "members": "Membres actifs du club"
+    },
+    "cta": "Voir les details des activites"
+  },
+  "hobbies": {
+    "title": "Loisirs et centres d'interet",
+    "subtitle": "Quand je ne code pas ou n'anime pas des initiatives communautaires, voici ce que j'aime faire.",
+    "viewProfile": "Voir le profil →",
+    "items": {
+      "1": {
+        "name": "Programmation",
+        "description": "Creation de projets personnels et exploration de nouvelles technologies"
+      },
+      "2": {
+        "name": "Lecture",
+        "description": "Blogs tech, documentation et livres d'architecture logicielle"
+      },
+      "3": {
+        "name": "Jeux video",
+        "description": "Jeux de strategie et defis de resolution de problemes"
+      },
+      "4": {
+        "name": "Films",
+        "description": "Regarder des films et explorer differents styles narratifs"
+      },
+      "5": {
+        "name": "Echecs",
+        "description": "Reflexion strategique et resolution de problemes en competition"
+      },
+      "6": {
+        "name": "Podcasts",
+        "description": "Talks tech, analyses business et developpement personnel"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Vous avez une question ou souhaitez collaborer ? N'hesitez pas a me contacter !",
+    "infoTitle": "Informations de contact",
+    "labels": {
+      "email": "Email",
+      "phone": "Telephone",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "actions": {
+      "connect": "Me contacter",
+      "checkCode": "Voir mon code"
+    },
+    "form": {
+      "title": "Envoyer un message",
+      "labels": {
+        "name": "Nom",
+        "email": "Email",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "message": "Votre message..."
+      },
+      "sending": "Envoi...",
+      "submit": "Envoyer le message"
+    },
+    "status": {
+      "openingEmail": "Ouverture de votre client email...",
+      "success": "Message envoye avec succes !",
+      "error": "Echec de l'envoi du message. Veuillez reessayer."
+    },
+    "mailSubject": "Contact depuis le portfolio : {{name}}",
+    "mailBody": "{{message}}\n\nDe : {{name}} <{{email}}>"
+  },
+  "footer": {
+    "rights": "Tous droits reserves.",
+    "builtWith": "Realise avec",
+    "and": "et"
+  },
+  "projectDetails": {
+    "notFoundTitle": "Projet introuvable",
+    "notFoundBack": "Retour a l'accueil",
+    "backToProjects": "Retour aux projets",
+    "metricsTitle": "Indicateurs cles et impact",
+    "techUsed": "Technologies utilisees",
+    "viewOnGithub": "Voir sur GitHub →",
+    "liveDemo": "Demo en ligne →",
+    "overviewTitle": "Apercu du projet",
+    "openImagePreview": "Ouvrir l'apercu de l'image",
+    "clickToZoom": "Cliquer pour zoomer",
+    "additionalScreenshots": "Captures d'ecran supplementaires",
+    "keyFeatures": "Fonctionnalites cles",
+    "close": "Fermer",
+    "selectScreenshot": "Selectionner une capture d'ecran"
+  },
+  "communityDetails": {
+    "backToHome": "Retour a l'accueil",
+    "title": "Activites",
+    "subtitle": "President du ChessSpirit Club (ESPRIT). J'ai organise des tournois et des sessions d'entrainement pour aider les membres a progresser et rester engages grace a une pratique reguliere et la competition.",
+    "featuredTitle": "President — ChessSpirit Club",
+    "featuredOrg": "ESPRIT",
+    "featuredDescription": "Organisation de tournois d'echecs et de sessions d'entrainement structurees. Objectif : ameliorer les performances, creer de la regularite et garder un esprit competitif convivial au sein du club.",
+    "featuredCard1Title": "Tournois",
+    "featuredCard1Body": "Appariements, plannings, rondes, resultats",
+    "featuredCard2Title": "Entrainement",
+    "featuredCard2Body": "Tactiques, ouvertures, finales",
+    "featuredImageAlt": "Activite du ChessSpirit Club",
+    "highlightsTitle": "Temps forts",
+    "highlights": {
+      "1": {
+        "title": "Organisation de tournois",
+        "description": "Preparation des tournois de bout en bout : inscriptions, appariements, planning et resultats."
+      },
+      "2": {
+        "title": "Sessions d'entrainement",
+        "description": "Animation de sessions structurees autour des tactiques, des principes d'ouverture et des finales."
+      },
+      "3": {
+        "title": "Engagement de l'equipe et du club",
+        "description": "Encouragement de la participation et d'un environnement d'apprentissage positif pour tous les niveaux."
+      }
+    },
+    "roleDetailsTitle": "Details du role",
+    "responsibilitiesTitle": "Responsabilites cles",
+    "activities": {
+      "items": {
+        "1": {
+          "role": "President",
+          "organization": "ChessSpirit Club (ESPRIT)",
+          "year": "ESPRIT",
+          "description": "Organisation de tournois d'echecs et de sessions d'entrainement pour ameliorer le niveau competitif et l'engagement des membres.",
+          "responsibilities": [
+            "Planification et gestion des tournois (format, appariements, rondes, resultats)",
+            "Gestion des inscriptions et planification des matchs",
+            "Animation de sessions d'entrainement (tactiques, ouvertures, finales)",
+            "Mentorat des debutants et accompagnement des joueurs intermediaires",
+            "Coordination avec les membres du club pour assurer un deroulement fluide des evenements"
+          ]
+        }
+      }
+    },
+    "photosTitle": "Photos",
+    "photoAlt": "Photo ChessSpirit {{index}}",
+    "photoCta": "Cliquer pour voir",
+    "galleryPreviewAlt": "Apercu de la galerie",
+    "lightboxPrevious": "← Precedent",
+    "lightboxNext": "Suivant →",
+    "lightboxClose": "Fermer"
+  },
+  "common": {
+    "view": "Voir"
+  }
+}

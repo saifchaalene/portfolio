@@ -34,6 +34,7 @@ import {
 } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 import { VscGithubAction } from 'react-icons/vsc'
+import { useTranslation } from 'react-i18next'
 
 type SkillCategory =
   | 'all'
@@ -99,14 +100,14 @@ const skills: Skill[] = [
   { name: 'CiviCRM (API v3)', icon: <SiPhp />, category: ['cms'], color: '#81C784' },
 ]
 
-const categories = [
-  { id: 'all', label: 'All Skills', icon: '🎯' },
-  { id: 'frontend', label: 'Frontend', icon: '🎨' },
-  { id: 'backend', label: 'Backend', icon: '⚙️' },
-  { id: 'database', label: 'Database', icon: '🗄️' },
-  { id: 'devops', label: 'DevOps', icon: '🚀' },
-  { id: 'languages', label: 'Languages', icon: '💻' },
-  { id: 'cms', label: 'CMS / CRM', icon: '🏗️' },
+const categoryDefinitions = [
+  { id: 'all', labelKey: 'skills.categories.all', fallback: 'All Skills', icon: '🎯' },
+  { id: 'frontend', labelKey: 'skills.categories.frontend', fallback: 'Frontend', icon: '🎨' },
+  { id: 'backend', labelKey: 'skills.categories.backend', fallback: 'Backend', icon: '⚙️' },
+  { id: 'database', labelKey: 'skills.categories.database', fallback: 'Database', icon: '🗄️' },
+  { id: 'devops', labelKey: 'skills.categories.devops', fallback: 'DevOps', icon: '🚀' },
+  { id: 'languages', labelKey: 'skills.categories.languages', fallback: 'Languages', icon: '💻' },
+  { id: 'cms', labelKey: 'skills.categories.cms', fallback: 'CMS / CRM', icon: '🏗️' },
 ]
 
 const containerVariants = {
@@ -127,7 +128,12 @@ const itemVariants = {
 }
 
 export default function Skills() {
+  const { t } = useTranslation()
   const [activeCategory, setActiveCategory] = useState<SkillCategory>('all')
+  const categories = categoryDefinitions.map((category) => ({
+    ...category,
+    label: t(category.labelKey, category.fallback),
+  }))
 
   const filteredSkills =
     activeCategory === 'all'
@@ -143,7 +149,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="section-title text-center"
         >
-          🛠️ Technical Skills
+          🛠️ {t('skills.title', 'Technical Skills')}
         </motion.h2>
 
         <motion.p
@@ -152,7 +158,10 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12"
         >
-          A comprehensive overview of the technologies and tools I work with to build modern web applications.
+          {t(
+            'skills.subtitle',
+            'A comprehensive overview of the technologies and tools I work with to build modern web applications.'
+          )}
         </motion.p>
 
         {/* Category Filters */}

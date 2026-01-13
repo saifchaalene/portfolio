@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -25,6 +26,8 @@ const activities = [
 ]
 
 export default function Volunteering() {
+  const { t } = useTranslation()
+
   return (
     <section id="volunteering" className="py-20 relative overflow-hidden">
       {/* Background decoration */}
@@ -40,7 +43,7 @@ export default function Volunteering() {
           viewport={{ once: true }}
           className="section-title text-center"
         >
-          🎯 Activities
+          🎯 {t('volunteering.title', 'Activities')}
         </motion.h2>
 
         <motion.p
@@ -49,12 +52,20 @@ export default function Volunteering() {
           viewport={{ once: true }}
           className="text-center text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10"
         >
-          Leadership and organizational experience through student club activities,
-          focused on coordination, mentoring, and community engagement.
+          {t(
+            'volunteering.subtitle',
+            'Leadership and organizational experience through student club activities, focused on coordination, mentoring, and community engagement.'
+          )}
         </motion.p>
 
         <div className="max-w-4xl mx-auto space-y-6">
-          {activities.map((item, index) => (
+          {activities.map((item, index) => {
+            const role = t(`volunteering.items.${item.id}.role`, item.role)
+            const organization = t(`volunteering.items.${item.id}.organization`, item.organization)
+            const year = t(`volunteering.items.${item.id}.year`, item.year)
+            const description = t(`volunteering.items.${item.id}.description`, item.description)
+
+            return (
             <motion.div
               key={item.id}
               variants={cardVariants}
@@ -81,27 +92,27 @@ export default function Volunteering() {
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                       <div>
                         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                          {item.role}
+                          {role}
                         </h3>
                         <p className="text-cyan-700 dark:text-cyan-400 font-medium mt-1">
-                          {item.organization}
+                          {organization}
                         </p>
                       </div>
 
                       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/20 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/30 dark:border-cyan-500/20 text-sm font-medium">
                         <span>🏫</span>
-                        {item.year}
+                        {year}
                       </div>
                     </div>
 
                     <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                      {item.description}
+                      {description}
                     </p>
                   </div>
                 </div>
               </div>
             </motion.div>
-          ))}
+          )})}
         </div>
 
         {/* Impact (real, meaningful) */}
@@ -116,7 +127,7 @@ export default function Volunteering() {
               5+
             </div>
             <p className="text-slate-600 dark:text-slate-400 font-medium">
-              Tournaments Organized
+              {t('volunteering.metrics.tournaments', 'Tournaments Organized')}
             </p>
           </div>
 
@@ -125,7 +136,7 @@ export default function Volunteering() {
               20+
             </div>
             <p className="text-slate-600 dark:text-slate-400 font-medium">
-              Training Sessions Led
+              {t('volunteering.metrics.trainingSessions', 'Training Sessions Led')}
             </p>
           </div>
 
@@ -134,7 +145,7 @@ export default function Volunteering() {
               30+
             </div>
             <p className="text-slate-600 dark:text-slate-400 font-medium">
-              Active Club Members
+              {t('volunteering.metrics.members', 'Active Club Members')}
             </p>
           </div>
         </motion.div>
@@ -149,7 +160,7 @@ export default function Volunteering() {
             to="/community-involvement"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-600 text-white hover:from-emerald-400 hover:to-cyan-500 transition-all text-lg font-semibold shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 hover:scale-105 duration-300"
           >
-            <span>View Activity Details</span>
+            <span>{t('volunteering.cta', 'View Activity Details')}</span>
             <span className="text-xl">→</span>
           </Link>
         </motion.div>

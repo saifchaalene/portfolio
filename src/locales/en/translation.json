@@ -1,0 +1,356 @@
+{
+  "nav": {
+    "logoAlt": "Logo",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "community": "Community",
+    "contact": "Contact"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "english": "English",
+    "french": "French",
+    "switchTo": "Switch language to {{language}}"
+  },
+  "themeToggle": {
+    "label": "Toggle theme"
+  },
+  "hero": {
+    "welcome": "Welcome to my portfolio",
+    "downloadCv": "Download CV",
+    "viewCv": "View CV"
+  },
+  "about": {
+    "title": "About Me",
+    "journey": {
+      "title": "My Journey",
+      "body": "I'm a full-stack software engineer holding an Engineering degree in Computer Science from ESPRIT. I enjoy building reliable products that combine clean architecture, strong backend foundations, and modern user interfaces."
+    },
+    "do": {
+      "title": "What I Do",
+      "body": "I develop end-to-end web solutions using React and Angular on the frontend, and backend stacks like Node.js, PHP (including Joomla), and Django. I'm comfortable designing REST application programming interfaces (REST APIs), integrating third-party services, and delivering features from idea to production."
+    },
+    "approach": {
+      "title": "My Approach",
+      "body": "I focus on maintainable code, clear collaboration, and consistent delivery. I care about performance, testing, and practical automation-like Continuous Integration and Continuous Delivery (CI/CD) to ship fast without sacrificing quality."
+    },
+    "beyond": {
+      "title": "Beyond Code",
+      "body": "I value teamwork and leadership. At university, I served as President of ChessSpirit Club, organizing activities and building a supportive community-skills I bring into engineering teams and agile projects."
+    }
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "A comprehensive overview of the technologies and tools I work with to build modern web applications.",
+    "categories": {
+      "all": "All Skills",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps",
+      "languages": "Languages",
+      "cms": "CMS / CRM"
+    }
+  },
+  "timeline": {
+    "title": "Experience & Education",
+    "work": "Work Experience",
+    "education": "Education"
+  },
+  "resume": {
+    "role": "IT Officer - Full-Stack Developer (React/PHP) & Systems Support",
+    "profile": "Software Engineer with hands-on experience modernizing Joomla/CiviCRM platforms and building scalable React and TypeScript applications. Delivered PHP and MySQL-backed REST APIs, integrated authentication and data flows (CORS, tokens), and built responsive UIs with Vite and Tailwind CSS. Comfortable with Linux deployments (Apache/Nginx, php-fpm), CI/CD pipelines, and day-to-day systems support in Agile teams."
+  },
+  "experience": {
+    "items": {
+      "w1": {
+        "title": "CRM Modernization (Joomla + CiviCRM) — Bureau International des Expositions (BIE), Paris",
+        "role": "Software Engineering Intern",
+        "period": "Mar 2025 – Sept 2025",
+        "details": [
+          "Upgraded legacy Joomla 3 to Joomla 5 and migrated CiviCRM 4.7 to CiviCRM 6",
+          "Refactored custom components, updated deprecated APIs, and ensured compatibility with PHP 8.2 and the new Joomla architecture",
+          "Implemented backend REST endpoints in Joomla and integrated them with a React + Vite frontend",
+          "Optimized data flows and improved delegate/member-state workflows, performance, and maintainability"
+        ]
+      },
+      "w2": {
+        "title": "E-commerce Marketplace — FIDNESS",
+        "role": "Full Stack Developer (Freelance)",
+        "period": "Oct 2024 – Jan 2025",
+        "details": [
+          "Developed core business modules: product catalog, shopping cart, coupons, orders, and secure OTP email authentication workflows",
+          "Built Golang microservices (authentication, product management, payment verification) with clean, modular architecture",
+          "Integrated external banking APIs for transaction validation and real-time callbacks"
+        ]
+      },
+      "w3": {
+        "title": "Enterprise Software Delivery — WEVIOO, Tunis",
+        "role": "Software Development Intern",
+        "period": "Jun 2024 – Aug 2024",
+        "details": [
+          "Implemented RESTful backend services using C#/.NET",
+          "Built reusable Angular components",
+          "Improved code quality through reviews and documentation"
+        ]
+      },
+      "w4": {
+        "title": "Full-Stack Internship — ALFA Computers, Mahdia",
+        "role": "Full Stack Intern",
+        "period": "Aug 2023",
+        "details": [
+          "Built frontend modules in React integrated with REST APIs",
+          "Supported backend development using Node.js + MongoDB",
+          "Assisted with deployment tasks and production rollout support"
+        ]
+      }
+    }
+  },
+  "education": {
+    "items": {
+      "e1": {
+        "title": "Engineering Degree in Computer Science",
+        "org": "ESPRIT — Tunis, Tunisia",
+        "period": "2022 – 2025",
+        "details": [
+          "Full-stack software engineering and modern web architectures",
+          "Agile/Scrum methodologies and cloud-ready development",
+          "Strong emphasis on React, Angular, Node.js, Spring Boot, clean architecture, DevOps, and CI/CD pipelines"
+        ]
+      },
+      "e2": {
+        "title": "Preparatory Cycle for Engineering Studies",
+        "org": "IPEIB — Bizerte, Tunisia",
+        "period": "2020 – 2022",
+        "details": [
+          "Advanced mathematics, physics, algorithms, and problem-solving",
+          "Preparation for national engineering entrance examinations"
+        ]
+      },
+      "e3": {
+        "title": "Baccalaureate in Mathematics",
+        "org": "Lycee — Bizerte, Tunisia",
+        "period": "2018",
+        "details": [
+          "National diploma with a focus on advanced mathematics and scientific reasoning"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Here are some of my recent projects showcasing my skills in full-stack development and modern web technologies.",
+    "filters": {
+      "all": "All Projects",
+      "professional": "Professional",
+      "academic": "Academic"
+    },
+    "types": {
+      "professional": "Professional",
+      "academic": "Academic"
+    },
+    "buttons": {
+      "viewDetails": "View Details →",
+      "github": "GitHub →"
+    },
+    "items": {
+      "p1": {
+        "title": "BIE CRM Modernization (Joomla 5 + CiviCRM 6 + React)",
+        "description": "Modernized an internal CRM by upgrading Joomla 3 to Joomla 5 and migrating CiviCRM 4.7 to CiviCRM 6. Built new REST endpoints and integrated a React + Vite frontend with Tailwind CSS, improving workflows and maintainability."
+      },
+      "p2": {
+        "title": "FIDNESS — E-commerce Marketplace + Golang Microservices",
+        "description": "Contributed to an online marketplace storefront and core business modules (catalog, cart, coupons, orders, OTP authentication). Built Golang microservices and integrated external banking APIs for transaction validation and real-time callbacks."
+      },
+      "p3": {
+        "title": "WEVIOO — .NET REST Services + Angular Components",
+        "description": "Implemented RESTful backend services using C#/.NET and built reusable Angular components. Contributed to code quality improvements through reviews and documentation."
+      },
+      "p4": {
+        "title": "ALFA Computers — React Frontend + Node.js & MongoDB",
+        "description": "Built frontend modules in React.js integrated with REST APIs and supported backend development using Node.js and MongoDB. Assisted with deployment tasks and production rollout support."
+      },
+      "p5": {
+        "title": "Music Streaming Platform",
+        "description": "Music streaming web application with playlist management, user sessions, and secure OAuth2/JWT authentication. Responsive UI built with Tailwind CSS."
+      },
+      "p6": {
+        "title": "DevOps Foyer — CI/CD Pipeline",
+        "description": "Designed and deployed a CI/CD pipeline with automated build and testing, SonarQube analysis, Docker image generation, and Jenkins orchestration. Monitoring with Grafana and artifact storage on Nexus."
+      },
+      "p7": {
+        "title": "EpicJourneys — Travel Manager",
+        "description": "Java MVC application with a MySQL backend for managing events, itineraries, reservations, and user interactions."
+      },
+      "p8": {
+        "title": "Co & Co — Carpooling and Colocation Platform",
+        "description": "Full-stack platform combining a Spring Boot backend with an Angular frontend, offering listings, user profiles, and search features for students."
+      }
+    }
+  },
+  "volunteering": {
+    "title": "Activities",
+    "subtitle": "Leadership and organizational experience through student club activities, focused on coordination, mentoring, and community engagement.",
+    "items": {
+      "1": {
+        "role": "President",
+        "organization": "ChessSpirit Club (ESPRIT)",
+        "year": "ESPRIT",
+        "description": "Organized internal and inter-school chess tournaments, managed event logistics including registrations, match schedules, and coordination with participants. Led regular training sessions focused on tactical skills, opening strategies, and competitive play. Mentored club members, supported beginner and intermediate players, and promoted strategic thinking, discipline, and teamwork."
+      }
+    },
+    "metrics": {
+      "tournaments": "Tournaments Organized",
+      "trainingSessions": "Training Sessions Led",
+      "members": "Active Club Members"
+    },
+    "cta": "View Activity Details"
+  },
+  "hobbies": {
+    "title": "Hobbies & Interests",
+    "subtitle": "When I'm not coding or leading community initiatives, here's what I enjoy doing.",
+    "viewProfile": "View Profile →",
+    "items": {
+      "1": {
+        "name": "Coding",
+        "description": "Building side projects and exploring new technologies"
+      },
+      "2": {
+        "name": "Reading",
+        "description": "Tech blogs, documentation, and software architecture books"
+      },
+      "3": {
+        "name": "Gaming",
+        "description": "Strategy games and problem-solving challenges"
+      },
+      "4": {
+        "name": "Movies",
+        "description": "Enjoying films and exploring different storytelling styles"
+      },
+      "5": {
+        "name": "Chess",
+        "description": "Strategic thinking and competitive problem-solving"
+      },
+      "6": {
+        "name": "Podcasts",
+        "description": "Tech talks, business insights, and personal development"
+      }
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have a question or want to work together? Feel free to reach out!",
+    "infoTitle": "Contact Information",
+    "labels": {
+      "email": "Email",
+      "phone": "Phone",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "actions": {
+      "connect": "Connect with me",
+      "checkCode": "Check my code"
+    },
+    "form": {
+      "title": "Send a Message",
+      "labels": {
+        "name": "Name",
+        "email": "Email",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "message": "Your message..."
+      },
+      "sending": "Sending...",
+      "submit": "Send Message"
+    },
+    "status": {
+      "openingEmail": "Opening your email client...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "mailSubject": "Contact from portfolio: {{name}}",
+    "mailBody": "{{message}}\n\nFrom: {{name}} <{{email}}>"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with",
+    "and": "and"
+  },
+  "projectDetails": {
+    "notFoundTitle": "Project Not Found",
+    "notFoundBack": "Back to Home",
+    "backToProjects": "Back to Projects",
+    "metricsTitle": "Key Metrics & Impact",
+    "techUsed": "Technologies Used",
+    "viewOnGithub": "View on GitHub →",
+    "liveDemo": "Live Demo →",
+    "overviewTitle": "Project Overview",
+    "openImagePreview": "Open image preview",
+    "clickToZoom": "Click to zoom",
+    "additionalScreenshots": "Additional Screenshots",
+    "keyFeatures": "Key Features",
+    "close": "Close",
+    "selectScreenshot": "Select screenshot"
+  },
+  "communityDetails": {
+    "backToHome": "Back to Home",
+    "title": "Activities",
+    "subtitle": "President at ChessSpirit Club (ESPRIT). I organized tournaments and training sessions to help members improve their skills and stay engaged through consistent practice and competition.",
+    "featuredTitle": "President — ChessSpirit Club",
+    "featuredOrg": "ESPRIT",
+    "featuredDescription": "Organized chess tournaments and structured training sessions. Focused on improving performance, building consistency, and keeping a friendly competitive spirit inside the club.",
+    "featuredCard1Title": "Tournaments",
+    "featuredCard1Body": "Pairings, schedules, rounds, results",
+    "featuredCard2Title": "Training",
+    "featuredCard2Body": "Tactics, openings, endgames",
+    "featuredImageAlt": "ChessSpirit Club activity",
+    "highlightsTitle": "Highlights",
+    "highlights": {
+      "1": {
+        "title": "Tournaments Organization",
+        "description": "Prepared tournaments from start to finish: registrations, pairings, scheduling, and results."
+      },
+      "2": {
+        "title": "Training Sessions",
+        "description": "Led structured sessions around tactics, opening principles, and endgame fundamentals."
+      },
+      "3": {
+        "title": "Team & Club Engagement",
+        "description": "Encouraged participation and a positive learning environment for different skill levels."
+      }
+    },
+    "roleDetailsTitle": "Role Details",
+    "responsibilitiesTitle": "Key Responsibilities",
+    "activities": {
+      "items": {
+        "1": {
+          "role": "President",
+          "organization": "ChessSpirit Club (ESPRIT)",
+          "year": "ESPRIT",
+          "description": "Organized chess tournaments and training sessions to improve members’ competitive level and engagement.",
+          "responsibilities": [
+            "Planned and ran tournaments (format, pairings, rounds, results)",
+            "Managed registrations and match scheduling",
+            "Facilitated training sessions (tactics, openings, endgames)",
+            "Mentored beginners and supported intermediate players",
+            "Coordinated with club members to ensure smooth event execution"
+          ]
+        }
+      }
+    },
+    "photosTitle": "Photos",
+    "photoAlt": "ChessSpirit photo {{index}}",
+    "photoCta": "Click to view",
+    "galleryPreviewAlt": "Gallery preview",
+    "lightboxPrevious": "← Previous",
+    "lightboxNext": "Next →",
+    "lightboxClose": "Close"
+  },
+  "common": {
+    "view": "View"
+  }
+}
